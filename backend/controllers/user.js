@@ -53,6 +53,7 @@ const regUser = asyncHandler(async (req, res) => {
   }
 });
 const logOut = asyncHandler(async (req, res) => {
+  res.cookie("jwt", "", { httpOnly: true, expires: new Date(0) });
   res.status(200).json({ massage: "user logged out" });
 });
 const getUserProfile = asyncHandler(async (req, res) => {
