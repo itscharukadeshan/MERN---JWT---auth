@@ -5,7 +5,21 @@ import genToken from "../utils/genToken.js";
 import User from "../models/user.js";
 
 const authUser = asyncHandler(async (req, res) => {
-  res.status(200).json({ massage: "auth user" });
+  const { email, password } = req.body;
+  const user = User.findOne(email);
+
+  if (user && (await user.matchPassword(password))) {
+    genToken(res, user._id);
+
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid email or password");
+  }
 });
 const regUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
