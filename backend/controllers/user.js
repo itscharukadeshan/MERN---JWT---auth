@@ -1,6 +1,7 @@
 /** @format */
 import express from "express";
 import asyncHandler from "express-async-handler";
+import genToken from "../utils/genToken.js";
 import User from "../models/user.js";
 
 const authUser = asyncHandler(async (req, res) => {
@@ -21,6 +22,7 @@ const regUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
+    genToken(res, user._id);
     res.status(201).json({
       _id: user._id,
       name: user.name,
