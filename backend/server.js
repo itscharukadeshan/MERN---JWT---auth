@@ -3,6 +3,7 @@
 import express, { urlencoded } from "express";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
+import cookieParser from "cookie-parser";
 import connectDb from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 dotenv.config();
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 
