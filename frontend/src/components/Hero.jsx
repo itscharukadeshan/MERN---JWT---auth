@@ -13,7 +13,7 @@ export default function Hero() {
             the{" "}
             <a
               className=' text-cyan-300'
-              href='https://www.youtubefcom/watch?v=R4AhvYORZRY'>
+              href='https://www.youtube.com/watch?v=R4AhvYORZRY'>
               MERN Crash Course | JWT Authentication, Redux Toolkit, Deployment
               & More
             </a>{" "}
