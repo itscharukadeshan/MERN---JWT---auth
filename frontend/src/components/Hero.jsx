@@ -28,10 +28,10 @@ export default function Hero() {
           </p>
           <div className='py-6 flex flex-row gap-3 justify-center'>
             <Link to='/login'>
-              <button className='btn btn-outline btn-success'>Sing In</button>
+              <button className='btn btn-outline btn-success'>Sign In</button>
             </Link>
             <Link to='/register'>
-              <button className='btn btn-outline btn-ascent'>Sing up</button>
+              <button className='btn btn-outline btn-ascent'>Sign up</button>
             </Link>
           </div>
         </div>

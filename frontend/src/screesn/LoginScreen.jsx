@@ -22,7 +22,7 @@ function LoginScreen() {
             onSubmit={submitHandler}
             className='flex flex-col justify-center'>
             <h3 className=' text-3xl font-mono font-bold text-gray-300 py-3 '>
-              Sing In
+              Sign In
             </h3>
 
             <div className='form-control py-3'>
@@ -59,7 +59,7 @@ function LoginScreen() {
             </div>
             <div className='py-6 flex justify-center'>
               <button type='submit' className='btn btn-outline btn-success'>
-                Sing In
+                Sign In
               </button>
             </div>
 

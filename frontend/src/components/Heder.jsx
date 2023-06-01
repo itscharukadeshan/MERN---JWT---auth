@@ -18,13 +18,13 @@ function Heder() {
           <li>
             <div className='flex flex-row'>
               <FaSignInAlt className='text-white' />
-              <Link to='/login'>Sing In</Link>
+              <Link to='/login'>Sign In</Link>
             </div>
           </li>
           <li>
             <div className='flex flex-row'>
               <FaSignOutAlt className='text-white' />
-              <Link to='/register'>Sing Up</Link>
+              <Link to='/register'>Sign Up</Link>
             </div>
           </li>
         </ul>

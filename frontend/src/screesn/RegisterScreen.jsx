@@ -22,7 +22,7 @@ function RegisterScreen() {
         <div className='flex justify-center p-10 bg-base-200'>
           <form onSubmit={submitHandler}>
             <h3 className=' text-3xl font-mono font-bold text-gray-300 pb-3 '>
-              Sing Up
+              Sign Up
             </h3>
 
             <div className='form-control py-3'>
@@ -93,7 +93,7 @@ function RegisterScreen() {
             </div>
             <div className='py-6 flex justify-center'>
               <button type='submit' className='btn btn-outline btn-success'>
-                Sing Up
+                Sign Up
               </button>
             </div>
 
