@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <div class='hero min-h-screen bg-base-200'>
-      <div class='hero-content text-center'>
-        <div class=' max-w-xl'>
-          <h1 class='text-5xl font-bold'>MERN | JWT Authentication </h1>
-          <p class='py-6'>
+    <div className='hero min-h-screen bg-base-200'>
+      <div className='hero-content text-center'>
+        <div className=' max-w-xl'>
+          <h1 className='text-5xl font-bold'>MERN | JWT Authentication </h1>
+          <p className='py-6'>
             This is the basic home page created using Daisy Ui and Tailwind for
             the{" "}
             <a
