@@ -79,8 +79,14 @@ function LoginScreen() {
                 />
               </label>
             </div>
+
             <div className='py-6 flex justify-center'>
               <button type='submit' className='btn btn-outline btn-success'>
+                {isLoading && (
+                  <>
+                    <span className='loading loading-ring loading-md'></span>
+                  </>
+                )}
                 Sign In
               </button>
             </div>
