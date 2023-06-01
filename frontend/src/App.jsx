@@ -2,13 +2,13 @@
 
 import React from "react";
 import Heder from "./components/Heder";
-import HomeScreen from "./screesn/HomeScreen";
+import { Outlet } from "react-router-dom";
 
 export const App = () => {
   return (
     <div>
       <Heder />
-      <HomeScreen />
+      <Outlet />
     </div>
   );
 };

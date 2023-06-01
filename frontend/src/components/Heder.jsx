@@ -2,6 +2,7 @@
 
 import React from "react";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Heder() {
   return (
@@ -15,13 +16,13 @@ function Heder() {
           <li>
             <div className='flex flex-row'>
               <FaSignInAlt className='text-white' />
-              <a>Sing In</a>
+              <Link to='/login'>Sing In</Link>
             </div>
           </li>
           <li>
             <div className='flex flex-row'>
               <FaSignOutAlt className='text-white' />
-              <a>Sing Out</a>
+              <Link to='/register'>Sing Up</Link>
             </div>
           </li>
         </ul>

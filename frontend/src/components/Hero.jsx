@@ -1,6 +1,7 @@
 /** @format */
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -26,8 +27,12 @@ export default function Hero() {
             .
           </p>
           <div className='py-6 flex flex-row gap-3 justify-center'>
-            <button className='btn btn-outline btn-success'>Sing In</button>
-            <button className='btn btn-outline btn-warning'>Sing out</button>
+            <Link to='/login'>
+              <button className='btn btn-outline btn-success'>Sing In</button>
+            </Link>
+            <Link to='/register'>
+              <button className='btn btn-outline btn-ascent'>Sing up</button>
+            </Link>
           </div>
         </div>
       </div>
