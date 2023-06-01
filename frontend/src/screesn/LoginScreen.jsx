@@ -16,7 +16,7 @@ function LoginScreen() {
   };
   return (
     <div className='flex justify-center p-10'>
-      <div className='mockup-window border border-base-300 w-fit'>
+      <div className='mockup-window border border-base-300 w-1/2'>
         <div className='flex justify-center p-10 bg-base-200'>
           <form
             onSubmit={submitHandler}
