@@ -2,10 +2,26 @@
 
 import React from "react";
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useLogoutMutation } from "../slices/usersApiSlice";
+import { logOut } from "../slices/authSlice";
 function Heder() {
   const { userInfo } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logOut());
+      navigate("/login");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className='navbar bg-base-100'>
       <div className='flex-1'>
@@ -40,7 +56,7 @@ function Heder() {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/logout"}>Log out</Link>
+                  <Link onClick={logoutHandler}>Log out</Link>
                 </li>
               </ul>
             </div>
