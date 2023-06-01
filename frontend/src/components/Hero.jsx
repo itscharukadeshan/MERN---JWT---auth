@@ -27,9 +27,7 @@ export default function Hero() {
           </p>
           <div className='py-6 flex flex-row gap-3 justify-center'>
             <button className='btn btn-outline btn-success'>Sing In</button>
-            <button className='btn text-rose-300 hover:bg-rose-100 hover:text-white'>
-              Sing Out
-            </button>
+            <button className='btn btn-outline btn-warning'>Sing out</button>
           </div>
         </div>
       </div>
