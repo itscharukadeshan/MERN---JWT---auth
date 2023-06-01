@@ -31,7 +31,7 @@ export default function Hero() {
               <button className='btn btn-outline btn-success'>Sign In</button>
             </Link>
             <Link to='/register'>
-              <button className='btn btn-outline btn-ascent'>Sign up</button>
+              <button className='btn btn-outline btn-info'>Sign up</button>
             </Link>
           </div>
         </div>
