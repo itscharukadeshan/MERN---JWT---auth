@@ -8,6 +8,7 @@
     "start": "node ./backend/server.js",
     "sever": "nodemon ./backend/server.js",
     "client": "npm run dev --prefix frontend",
+    "build" : "npm i",
     "dev": "concurrently \"npm run sever\" \"npm run client\""
   },
   "keywords": [],
