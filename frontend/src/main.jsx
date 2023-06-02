@@ -13,6 +13,8 @@ import "./index.css";
 import HomeScreen from "./screesn/HomeScreen";
 import LoginScreen from "./screesn/LoginScreen";
 import RegisterScreen from "./screesn/RegisterScreen";
+import ProfileScreen from "./screesn/ProfileScreen";
+import PrivetRoute from "./components/PrivetRoute";
 import store from "./store";
 import { Provider } from "react-redux";
 
@@ -22,6 +24,9 @@ const router = createBrowserRouter(
       <Route index={true} path='/' element={<HomeScreen />}></Route>
       <Route path='/login' element={<LoginScreen />}></Route>
       <Route path='/register' element={<RegisterScreen />}></Route>
+      <Route path='' element={<PrivetRoute />}>
+        <Route path='/profile' element={<ProfileScreen />}></Route>
+      </Route>
     </Route>
   )
 );
