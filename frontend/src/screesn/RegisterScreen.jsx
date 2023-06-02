@@ -1,24 +1,25 @@
 /** @format */
 
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import { useRegisterMutation } from "../slices/usersApiSlice";
+import { setCredential } from "../slices/authSlice";
+import { toast } from "react-toastify";
 
-import React from "react";
-
-function RegisterScreen() {
+const RegisterScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { userInfo } = useSelector((state) => state.auth);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const despatch = useDispatch();
 
   const [register, { isLoading }] = useRegisterMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
   useEffect(() => {
     if (userInfo) {
       navigate("/");
@@ -27,18 +28,20 @@ function RegisterScreen() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     if (password !== confirmPassword) {
-      toast.error("password don't match");
+      toast.error("Passwords do not match");
     } else {
       try {
         const res = await register({ name, email, password }).unwrap();
-        despatch(setCredential({ ...res }));
-        navigate("/");
+        dispatch(setCredential({ ...res }));
+        navigate(redirect);
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
     }
   };
+
   return (
     <div className='flex justify-center p-10'>
       <div className='mockup-window border border-base-300 w-1/2'>
@@ -136,6 +139,6 @@ function RegisterScreen() {
       </div>
     </div>
   );
-}
+};
 
 export default RegisterScreen;

@@ -14,7 +14,7 @@ function LoginScreen() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const despatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.auth);
@@ -29,8 +29,8 @@ function LoginScreen() {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
-      despatch(setCredential({ ...res }));
-      navigate("/");
+      dispatch(setCredential({ ...res }));
+      navigate(redirect);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
