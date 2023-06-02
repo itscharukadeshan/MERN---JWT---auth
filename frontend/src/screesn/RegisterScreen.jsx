@@ -1,8 +1,10 @@
 /** @format */
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import ForumContainer from "../components/ForumContainer";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useRegisterMutation } from "../slices/usersApiSlice";
 
 import React from "react";
 
@@ -11,10 +13,31 @@ function RegisterScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+  const despatch = useDispatch();
+
+  const [register, { isLoading }] = useRegisterMutation();
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log("submit");
+    if (password !== confirmPassword) {
+      toast.error("password don't match");
+    } else {
+      try {
+        const res = await register({ name, email, password }).unwrap();
+        despatch(setCredential({ ...res }));
+        navigate("/");
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
+    }
   };
   return (
     <div className='flex justify-center p-10'>
@@ -35,7 +58,7 @@ function RegisterScreen() {
                   placeholder='Enter your name'
                   value={name}
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    setName(e.target.value);
                   }}
                   className='input input-bordered'
                 />
@@ -93,6 +116,11 @@ function RegisterScreen() {
             </div>
             <div className='py-6 flex justify-center'>
               <button type='submit' className='btn btn-outline btn-success'>
+                {isLoading && (
+                  <>
+                    <span className='loading loading-ring loading-md'></span>
+                  </>
+                )}
                 Sign Up
               </button>
             </div>
